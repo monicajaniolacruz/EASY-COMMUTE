@@ -1,6 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import videoPath from './components/images/INDEX.mp4'
+
+
 </script>
 
 <template>

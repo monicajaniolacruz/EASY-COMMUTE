@@ -181,7 +181,7 @@
 
 
 <script>
-// import { supabase } from "../supabaseClient"; // Assuming this path is correct
+import { supabase } from "../../supabaseClient";
 
 export default {
   name: 'AuthComponent',
@@ -214,109 +214,21 @@ export default {
             /[0-9]/.test(v) &&
             /[!@#$%^&*(),.?":{}|<>]/.test(v)) ||
           'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
-        confirmPassword: (v) => v === this.password || 'Passwords do not match',
+        confirmPassword: (v) =>
+          v === this.password || 'Passwords do not match', // Corrected for reactive context
       },
     }
   },
   methods: {
     showSnackbar(text, color) {
-      this.snackbarText = text
-      this.snackbarColor = color
-      this.snackbar = true
+      this.snackbarText = text;
+      this.snackbarColor = color;
+      this.snackbar = true;
     },
-    handleSubmit(formType) {
-      if (formType === 'login') {
-        console.log('Login Form Data:', {
-          email: this.loginEmail,
-          password: this.loginPassword,
-          rememberMe: this.rememberMe,
-        })
-      } else if (formType === 'signup') {
-        console.log('Signup Form Data:', {
-          fullname: this.fullname,
-          email: this.email,
-          phone_number: this.phone_number,
-          password: this.password,
-          confirmPassword: this.confirmPassword,
-        })
-      }
-      // Show a snackbar as a placeholder for form submission logic
-      this.showSnackbar(`Submitted ${formType} form`, 'success')
-    },
-    // async handleSubmit(formType) {
-    //   if (formType === 'login') {
-    //     try {
-    //       const { data, error } = await supabase.auth.signInWithPassword({
-    //         email: this.loginEmail,
-    //         password: this.loginPassword,
-    //       });
-
-    //       if (error) throw error;
-
-    //       if (data.session) {
-    //         localStorage.setItem("access_token", data.session.access_token);
-    //         localStorage.setItem("refresh_token", data.session.refresh_token);
-    //       }
-
-    //       if (this.rememberMe) {
-    //         localStorage.setItem("email", this.loginEmail);
-    //         localStorage.setItem("password", this.loginPassword);
-    //       } else {
-    //         localStorage.removeItem("email");
-    //         localStorage.removeItem("password");
-    //       }
-
-    //       this.showSnackbar('Login successful!', 'success');
-    //       this.$router.push("/homesec");
-    //     } catch (error) {
-    //       this.showSnackbar(`Login error: ${error.message}`, 'error');
-    //     }
-    //   } else if (formType === 'signup') {
-    //     try {
-    //       const { data, error } = await supabase.auth.signUp({
-    //         email: this.email,
-    //         password: this.password,
-    //       });
-
-    //       if (error) throw error;
-
-    //       const user_id = data.user?.id;
-    //       if (!user_id) throw new Error("Failed to get user ID during signup");
-
-    //       localStorage.setItem("user_id", user_id);
-
-    //       const { error: insertError } = await supabase.from("users_info").insert([
-    //         {
-    //           id: user_id,
-    //           email: this.email,
-    //           phone_number: this.phone_number,
-    //           fullname: this.fullname,
-    //         },
-    //       ]);
-
-    //       if (insertError) throw new Error("Unable to save user details");
-
-    //       this.showSnackbar('Signup successful!', 'success');
-    //       this.fullname = '';
-    //       this.email = '';
-    //       this.phone_number = '';
-    //       this.password = '';
-    //       this.confirmPassword = '';
-    //     } catch (error) {
-    //       this.showSnackbar(`Signup error: ${error.message}`, 'error');
-    //     }
-    //   }
-    // },
+    
   },
-  // mounted() {
-  //   const savedEmail = localStorage.getItem("email");
-  //   const savedPassword = localStorage.getItem("password");
-  //   if (savedEmail && savedPassword) {
-  //     this.loginEmail = savedEmail;
-  //     this.loginPassword = savedPassword;
-  //     this.rememberMe = true;
-  //   }
-  // },
-}
+ 
+};
+
 </script>
 
