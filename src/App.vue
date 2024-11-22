@@ -29,9 +29,9 @@ import videoPath from './components/images/INDEX.mp4'
           <router-link to="#" class="nav-link">Contact</router-link>
           <router-link to="#" class="nav-link">Settings</router-link>
         </nav>
-        <a href="/auth">
+        <router-link to="/auth">
           <button class="ml-3">Sign in</button>
-        </a>
+        </router-link>
       </v-container>
     </v-app-bar>
 
