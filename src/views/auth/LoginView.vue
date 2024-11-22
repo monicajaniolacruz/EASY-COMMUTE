@@ -185,8 +185,8 @@ export default {
     // Show a snackbar as a placeholder for form submission logic
     this.showSnackbar(`Submitted ${formType} form`, 'success');
   }
-   
+    
   },
- 
+  
 }
 </script>
