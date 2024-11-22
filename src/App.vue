@@ -1,4 +1,4 @@
-\<script setup>
+<script setup>
 import { RouterView } from 'vue-router'
 import videoPath from './components/images/INDEX.mp4'
 </script>
@@ -29,7 +29,9 @@ import videoPath from './components/images/INDEX.mp4'
           <router-link to="#" class="nav-link">Contact</router-link>
           <router-link to="#" class="nav-link">Settings</router-link>
         </nav>
-        <button class="ml-3">Sign in</button>
+        <a href="/auth">
+          <button class="ml-3">Sign in</button>
+        </a>
       </v-container>
     </v-app-bar>
 
@@ -92,7 +94,7 @@ button {
   min-height: 3em;
   min-width: 0;
   outline: none;
-  padding: .8em 2em;
+  padding: 0.8em 2em;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -116,5 +118,59 @@ button:hover {
 button:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+/* Responsive adjustments */
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #22034a;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px; /* Default font size */
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 3em;
+  min-width: 0;
+  outline: none;
+  padding: 0.8em 2em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #37277030;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+    padding: 0.6em 1.5em;
+    font-size: 12px;
+    min-height: 2.5em;
+  }
 }
 </style>
