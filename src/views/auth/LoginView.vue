@@ -181,7 +181,7 @@
 
 
 <script>
-import { supabase } from "../../supabaseClient";
+// import { supabase } from "../../supabaseClient";
 
 export default {
   name: 'AuthComponent',
@@ -202,20 +202,7 @@ export default {
       snackbarColor: '',
       rules: {
         required: (v) => !!v || 'This field is required',
-        fullname: (v) => (v && v.length >= 10) || 'Name should be at least 10 characters long',
-        email: (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-        phone: (v) =>
-          (v && v.length === 11 && /^\d+$/.test(v)) || 'Phone number should be 11 digits',
-        password: (v) =>
-          (v &&
-            v.length >= 8 &&
-            /[A-Z]/.test(v) &&
-            /[a-z]/.test(v) &&
-            /[0-9]/.test(v) &&
-            /[!@#$%^&*(),.?":{}|<>]/.test(v)) ||
-          'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
-        confirmPassword: (v) =>
-          v === this.password || 'Passwords do not match', // Corrected for reactive context
+        
       },
     }
   },
@@ -225,9 +212,9 @@ export default {
       this.snackbarColor = color;
       this.snackbar = true;
     },
-    
+   
   },
- 
+  
 };
 
 </script>
