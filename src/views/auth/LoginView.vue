@@ -280,7 +280,7 @@ export default {
 
           if (insertError) throw new Error("Unable to save user details to the database.");
 
-          this.showSnackbar("Signup successful!", "success");
+          this.showSnackbar("Signup successful please check your email!", "success");
 
           // Clear form fields after successful signup
           this.fullname = "";
