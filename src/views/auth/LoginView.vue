@@ -1,57 +1,53 @@
 <script setup>
-import { ref } from 'vue'
+import AppLayout from '@/components/layout/AppLayout.vue'
+import LoginForm from '@/components/auth/LoginForm.vue'
+import { useDisplay } from 'vuetify'
 
-const theme = ref('light')
-
-function onClick() {
-  theme.value = theme.value === 'light' ? 'dark' : 'light'
-}
+const { mobile } = useDisplay()
 </script>
 
 <template>
-  <v-responsive class="border rounded">
-    <v-app :theme="theme">
-      <v-app-bar class="px-3" color="light-blue-darken-3">
-        <v-spacer></v-spacer>
+  <AppLayout>
+    <template #content>
+      <v-container fluid class="p-0">
+        <v-row>
+          <!-- Left Column for Video -->
+          <v-col cols="12" lg="6" class="h-screen bg-surface-light" v-if="!mobile">
+            <video
+              src="/images/register.mp4"
+              class="fill-height"
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+          </v-col>
 
-        <v-btn
-          :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-          text="Toggle Theme"
-          slim
-          @click="onClick"
-        ></v-btn>
-      </v-app-bar>
+          <!-- Right Column for Login Form -->
+          <v-col cols="12" lg="6" :class="mobile ? '' : 'pt-12'">
+            <v-card class="mx-auto" elevation="0" max-width="600">
+              <v-card-title class="text-center pb-0">
+                <v-img
+                  class="mx-auto mb-10"
+                  src="/public/LOGO (3).png"
+                  :width="mobile ? '75%' : '25%'"
+                ></v-img>
+                <p>Login</p>
+              </v-card-title>
 
-      <v-main>
-        <v-container>
-          <v-row>
-            <v-col cols="12" md="6" class="mx-auto">
-              <v-card class="mx-auto" prepend-icon="mdi-account" subtitle="The #1 Vue UI Library">
-                <template v-slot:title>
-                  <span class="font-weight-black">Easy Commute</span>
-                </template>
-
-                <v-card-text class="bg-surface-light pt-4">
-                  <v-form fast-fail @submit.prevent>
-                    <v-text-field label="Email"></v-text-field>
-
-                    <v-text-field label="Password" type="password"></v-text-field>
-
-                    <v-btn class="mt-2" type="submit" block>Submit</v-btn>
-                  </v-form>
-
-                  <v-divider class="my-5"></v-divider>
-                  <h5>
-                    Don't have account?
-                    <RouterLink to="/register">Click here to register</RouterLink>
-                  </h5>
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
-      <v-footer color="light-blue-darken-3" border app>2023 COPYRIGHT</v-footer>
-    </v-app>
-  </v-responsive>
+              <v-card-text class="bg-surface-light pt-4">
+                <v-divider class="my-5"></v-divider>
+                <LoginForm></LoginForm>
+                <v-divider class="my-5"></v-divider>
+                <h5 class="text-center">
+                  Don't have account?
+                  <RouterLink to="/register">Click here to register</RouterLink>
+                </h5>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </template>
+  </AppLayout>
 </template>
