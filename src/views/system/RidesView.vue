@@ -1,6 +1,6 @@
 <script setup>
-import { supabase } from "../../supabase";
-import router from "../../router/index";
+
+import router from "@/router/index"
 import { ref } from "vue";
 import LayoutWithSidebar from "@/components/LayoutWithSidebar.vue";
 
@@ -13,6 +13,11 @@ async function signOut() {
 
 const toggleSidebar = () => {
     isSidebarOpen.value = !isSidebarOpen.value;
+};
+
+const selectVehicle = (vehicleType) => {
+  const routeName = vehicleType === 'multicab' ? 'route-list-multicab' : 'route-list-tricycle';
+  router.push({ name: routeName, params: { vehicleType } });
 };
 </script>
 
@@ -45,12 +50,3 @@ const toggleSidebar = () => {
     </LayoutWithSidebar>
 </template>
 
-<script scoped>
-import router from "../../router/index";
-
-const selectVehicle = (vehicleType) => {
-  const routeName = vehicleType === 'multicab' ? 'route-list-multicab' : 'route-list-tricycle';
-  router.push({ name: routeName, params: { vehicleType } });
-};
-
-</script>
