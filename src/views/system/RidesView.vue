@@ -1,8 +1,8 @@
 <script setup>
-import { supabase } from "../supabase";
-import router from "../router/index";
+import { supabase } from "../../supabase";
+import router from "../../router/index";
 import { ref } from "vue";
-import LayoutWithSidebar from "../components/LayoutWithSidebar.vue";
+import LayoutWithSidebar from "@/components/LayoutWithSidebar.vue";
 
 const isSidebarOpen = ref(false);
 
@@ -26,7 +26,7 @@ const toggleSidebar = () => {
             class="absolute inset-0 w-full h-full object-cover"
         >
             <source
-                src="../../src/assets/videos/home.mp4"
+                src="/public/video/home.mp4"
                 type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -46,7 +46,7 @@ const toggleSidebar = () => {
 </template>
 
 <script scoped>
-import router from "../router/index";
+import router from "../../router/index";
 
 const selectVehicle = (vehicleType) => {
   const routeName = vehicleType === 'multicab' ? 'route-list-multicab' : 'route-list-tricycle';

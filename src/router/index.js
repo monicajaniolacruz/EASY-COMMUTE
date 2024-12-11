@@ -1,15 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import Dashboard from "../views/Dashboard.vue";
+import DashboardView from "@/views/system/DashboardView.vue";
+import FareView from "@/views/system/FareView.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import VerifyEmail from "../views/VerifyEmail.vue";
 import Profile from "../views/Profile.vue";
 import MapView from "../views/MapView.vue";
-import RidesView from "../views/RidesView.vue";
+import RidesView from "@/views/system/RidesView.vue";
 import RouteListMulticab from "../views/RouteListMulticab.vue";
 import RouteListTricycle from "../views/RouteListTricycle.vue";
 import RouteDetailView from "../views/RouteDetailView.vue";
+import LoginView from "@/views/auth/LoginView.vue";
+import ContactView from "@/views/system/ContactView.vue";
 
 import { supabase } from '../supabase';
 
@@ -19,12 +21,24 @@ const router = createRouter({
     {
       path: "/",
       name: "default",
-      component: Home,
+      component: LoginView,
     },
     {
       path: "/dashboard",
       name: "dasboard",
-      component: Dashboard,
+      component: DashboardView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/fare",
+      name: "fare",
+      component: FareView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: ContactView,
       meta: { requiresAuth: true },
     },
     {

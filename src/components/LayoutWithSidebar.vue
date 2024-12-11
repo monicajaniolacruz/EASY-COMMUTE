@@ -10,11 +10,15 @@
                     Home
                 </router-link>
                 <router-link class="block rounded-md px-4 py-2 text-white transition-all hover:bg-white hover:text-black"
-                             to="">
-                    Complain
+                             to="/rides">
+                    Ride
                 </router-link>
                 <router-link class="block rounded-md px-4 py-2 text-white transition-all hover:bg-white hover:text-black"
-                             to="">
+                             to="/fare">
+                    Fare
+                </router-link>
+                <router-link class="block rounded-md px-4 py-2 text-white transition-all hover:bg-white hover:text-black"
+                             to="/contact">
                     Contact Us
                 </router-link>
                 <router-link class="block rounded-md px-4 py-2 text-white transition-all hover:bg-white hover:text-black"
