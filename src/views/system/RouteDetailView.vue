@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import LayoutWithSidebar from "../components/LayoutWithSidebar.vue";
-import { supabase } from "../supabase";
+import LayoutWithSidebar from "@/components/LayoutWithSidebar.vue";
+// import { supabase } from "../supabase";
 import L from "leaflet"; // Import Leaflet
 import "leaflet/dist/leaflet.css"; // Leaflet CSS
 import "leaflet-routing-machine"; // Leaflet Routing Machine

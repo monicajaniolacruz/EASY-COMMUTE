@@ -1,17 +1,16 @@
 <template>
   <LayoutWithSidebar>
     <!-- Background Video -->
-    <!-- <video
+    <video
       autoplay
       loop
       muted
       playsinline
       class="absolute inset-0 w-full h-full object-cover"
     >
-      <source src="../../src/assets/videos/home.mp4" type="video/mp4" />
+      <source src="/public/video/background.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-    </video> -->
-
+    </video> 
     <!-- Profile Container -->
     <div class="flex justify-center items-center h-screen z-10 relative overflow-hidden">
       <div class="relative w-full max-w-md bg-white bg-opacity-90 shadow-lg rounded-lg px-8 pt-6 pb-8">
@@ -72,8 +71,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { supabase } from '../supabase';
-import LayoutWithSidebar from '../components/LayoutWithSidebar.vue';
+import { supabase } from '../../supabase';
+import LayoutWithSidebar from '@/components/LayoutWithSidebar.vue';
 import { toast } from "vue3-toastify";
 
 const user = ref(null);

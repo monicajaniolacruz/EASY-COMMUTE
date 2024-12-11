@@ -1,17 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboardView from "@/views/system/DashboardView.vue";
 import FareView from "@/views/system/FareView.vue";
-import SignIn from "../views/SignIn.vue";
-import SignUp from "../views/SignUp.vue";
-import VerifyEmail from "../views/VerifyEmail.vue";
-import Profile from "../views/Profile.vue";
+import VerifyEmail from "@/views/auth/VerifyEmail.vue";
+import ProfileView from "@/views/system/ProfileView.vue";
 import MapView from "../views/MapView.vue";
 import RidesView from "@/views/system/RidesView.vue";
-import RouteListMulticab from "../views/RouteListMulticab.vue";
-import RouteListTricycle from "../views/RouteListTricycle.vue";
-import RouteDetailView from "../views/RouteDetailView.vue";
+import RouteListMulticab from "@/views/system/RouteListMulticab.vue";
+import RouteListTricycle from "@/views/system/RouteListTricycle.vue";
+import RouteDetailView from "@/views/system/RouteDetailView.vue";
 import LoginView from "@/views/auth/LoginView.vue";
 import ContactView from "@/views/system/ContactView.vue";
+
 
 import { supabase } from '../supabase';
 
@@ -41,16 +40,7 @@ const router = createRouter({
       component: ContactView,
       meta: { requiresAuth: true },
     },
-    {
-      path: "/sign-in",
-      name: "sign in",
-      component: SignIn,
-    },
-    {
-      path: "/sign-up",
-      name: "sign up",
-      component: SignUp,
-    },
+    
     {
       path: "/verify-email",
       name: "verify-email",
@@ -59,7 +49,7 @@ const router = createRouter({
     {
       path: "/profile",
       name: "profile",
-      component: Profile,
+      component: ProfileView,
       meta: { requiresAuth: true },
     },
     {
@@ -74,6 +64,7 @@ const router = createRouter({
       component: RidesView,
       meta: { requiresAuth: true },
     },
+
     {
       path: "/route-list/multicab",
       name: "route-list-multicab",

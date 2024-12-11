@@ -21,10 +21,8 @@
 </template>
 
 <script>
-    import LayoutWithSidebar from "../components/LayoutWithSidebar.vue";
-    import {
-        supabase
-    } from "../supabase";
+    import LayoutWithSidebar from "@/components/LayoutWithSidebar.vue";
+    
 
     export default {
         components: {
